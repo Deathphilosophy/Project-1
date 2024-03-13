@@ -3,10 +3,9 @@ using namespace std;
 #include <iomanip>
 #include <string>
 #include "Clock.h"
-#include "Source.h"
+#include "Clock.cpp"
 
-void printClocks();
-void printMenu();
+
 
 
 
@@ -20,73 +19,27 @@ int main() {
 	//Get the user choice
 		switch (menuInput) {
 		case 1:
-			hr24++;
-			hr++;
-			if (hr24 == 24) {
-				hr24 = 0;
-			}
-			if (hr24 < 12) {
-				i = 0;
-			}
-			if (hr == 13) {
-				hr = 1;
-			}
-			if (hr24 >= 12) {
-				i = 1;
-			}
+			void addHour();
 			break;
+
 		case 2:
-			minute++;
-			if (minute == 60) {
-				hr++;
-				hr24++;
-				minute = 0;
-				if (hr24 < 12) {
-					i = 0;
-				}
-				if (hr24 >= 12) {
-					i = 1;
-				}
-				if (hr == 13) {
-					hr = 1;
-				}
-				if (hr24 == 24) {
-					hr24 = 0;
-				}
-			}
+			void addMinute();
+
 			break;
 		case 3:
-			sec++;
-			if (sec == 60) {
-				minute++;
-				sec = 0;
-				if (minute == 60) {
-					hr++;
-					hr24++;
-					minute = 0;
-					if (hr24 < 12) {
-						i = 0;
-					}
-					if (hr == 13) {
-						hr = 1;
-					}
-					if (hr24 >= 12) {
-						i = 1;
-					}
-					if (hr24 == 24) {
-						hr24 = 0;
-					}
-				}
-			}
+			void addSecond();
 			break;
-		case 4:
-			cout << "Exiting Clock Program" << endl;
-			exitChecker = false;
-			break;
-		default:
-			cout << "Unexpected Input Received. Please Enter A Valid Menu Item." << endl;
-		}
 
+		case 4:
+
+			cout << "Exiting Clock Program" << endl;
+			break;
+
+		default:
+			cout << "invalid input. Try again" << endl;
+		}
+		
+	return 0;
 	}
 	//Handle the user choice
 		//Display updated clock
@@ -94,6 +47,3 @@ int main() {
 
 	//Print Good Bye for appropriate choice
 
-
-	return 0;
-}
